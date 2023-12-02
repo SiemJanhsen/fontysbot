@@ -1,0 +1,224 @@
+<?xml version="1.0" ?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+
+<link name="base_footprint">
+</link>
+
+<joint name="base_footprint_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_footprint"/>
+  <child link="base_link"/>
+</joint>
+
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="0 0 0.07117449057392843" rpy="0 0 0"/>
+    <mass value="5"/>
+    <inertia ixx="1.125875" iyy="1.312695" izz="5" ixy="1e-06" iyz="-0.0" ixz="9e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+   	<mesh filename="file://$(find fontysbot)/description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fontysbot)/description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="front_right_joint" type="fixed">
+  <origin xyz="0.155 -0.14 0.05" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_right_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<link name="front_right_1">
+  <inertial>
+    <origin xyz="-2.7755575615628914e-17 -0.024999999999999994 6.245004513516506e-17" rpy="0 0 0"/>
+    <mass value="1"/>
+    <inertia ixx="0.1" iyy="0.1" izz="1" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  
+  <visual>
+    <origin xyz="-0.155 0.14 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fontysbot)/description/meshes/front_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+  <surface>
+        <friction>
+          <ode>
+            <mu>0</mu>
+            <mu2>0</mu2>
+          </ode>
+        </friction>
+  </surface>
+    <origin xyz="-0.155 0.14 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fontysbot)/description/meshes/front_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="rear_right_joint" type="fixed">
+  <origin xyz="-0.155 -0.14 0.05" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rear_right_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<link name="rear_right_1">
+  <inertial>
+    <origin xyz="2.7755575615628914e-17 -0.025000000000000022 7.632783294297951e-17" rpy="0 0 0"/>
+    <mass value="1"/>
+    <inertia ixx="0.1" iyy="0.1" izz="1" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  
+  <visual>
+    <origin xyz="0.155 0.14 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fontysbot)/description/meshes/rear_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+  <surface>
+        <friction>
+          <ode>
+           <mu>0</mu>
+            <mu2>0</mu2>
+          </ode>
+        </friction>
+  </surface>
+    <origin xyz="0.155 0.14 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fontysbot)/description/meshes/rear_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="rear_left_joint" type="fixed">
+  <origin xyz="-0.155 0.14 0.05" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rear_left_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<link name="rear_left_1">
+  <inertial>
+    <origin xyz="-1.6653345369377348e-16 0.02500000000000005 -1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="1"/>
+    <inertia ixx="0.1" iyy="0.1" izz="1" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  
+  <visual>
+    <origin xyz="0.155 -0.14 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fontysbot)/description/meshes/rear_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+  <surface>
+        <friction>
+          <ode>
+            <mu>0</mu>
+            <mu2>0</mu2>
+          </ode>
+        </friction>
+  </surface>
+    <origin xyz="0.155 -0.14 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fontysbot)/description/meshes/rear_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="front_left_joint" type="fixed">
+  <origin xyz="0.155 0.14 0.05" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_left_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<link name="front_left_1">
+  <inertial>
+    <origin xyz="-2.7755575615628914e-17 0.025000000000000105 -1.3877787807814457e-17" rpy="0 0 0"/>
+    <mass value="1"/>
+   <inertia ixx="0.1" iyy="0.1" izz="1" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  
+  <visual>
+    <origin xyz="-0.155 -0.14 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fontysbot)/description/meshes/front_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+  <surface>
+        <friction>
+          <ode>
+            <mu>0</mu>
+            <mu2>0</mu2>
+          </ode>
+        </friction>
+  </surface>
+    <origin xyz="-0.155 -0.14 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fontysbot)/description/meshes/front_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="laser_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.115" rpy="0 0 3.14"/>
+  <parent link="base_link"/>
+  <child link="laser_frame"/>
+</joint>
+
+<link name="laser_frame">
+  <inertial>
+    <origin xyz="2.584299894243567e-18 7.87836763182081e-17 0.019999999999999865" rpy="0 0 0"/>
+    <mass value="1"/>
+    <inertia ixx="0.00187" iyy="0.00187" izz="0.003083" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.115" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fontysbot)/description/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="red"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.115" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find fontysbot)/description/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+</robot>
