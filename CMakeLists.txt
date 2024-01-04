@@ -26,7 +26,7 @@ include_directories(include)
 
 # Install Cpp executables
 install(
-  DIRECTORY config description launch worlds
+  DIRECTORY config description launch
   DESTINATION share/${PROJECT_NAME}
 )
 

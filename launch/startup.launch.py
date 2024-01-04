@@ -28,7 +28,24 @@ def generate_launch_description():
         output='screen',
         parameters=[params]
     )
-
+    node_transform_publisher = Node(
+        package='fontysbot',
+        executable='tfbroadcaster.py',
+        output='screen'
+    )
+    
+    node_rviz2 = Node(
+        package='rviz2',
+        executable='rviz2',
+        output='screen'
+    )
+    
+    node_static_transform_publisher = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=['0','0','0','0','0','0','world','map'],
+        output='screen'
+    )
 
     # Launch!
     return LaunchDescription([
@@ -37,5 +54,8 @@ def generate_launch_description():
             default_value='true',
             description='Use sim time if true'),
 
-        node_robot_state_publisher
+        node_robot_state_publisher,
+        node_transform_publisher,
+        node_rviz2,
+        node_static_transform_publisher
     ])
