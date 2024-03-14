@@ -138,5 +138,36 @@ Vervolgens kan als alles goed is verlopen dit project gebouwd worden en geflashe
 Indien gewenst kan dit project worden samengevoegd met een ander Keil project zoals in de onderste afbeelding. 
 Nogmaals, dit is geen gebruiksvriendelijke oplossing en om deze reden wordt er aanbevolen om hier een nieuwe manier voor te bedenken.
 Het is belangrijk dat alle paden goed staan naar de header files en dat de juiste recentste versies van de MechVenlo toolbox wordt gebruikt.
- 
+
+
+
+__troubleshooting__
+
+Terminal opent niet in ubuntu
+Tijdens installatie is het meerdere keren voorgekomen dat de terminal van Ubuntu niet wilde openen. Dit kwam doordat deze locale al niet goed stond bij installatie. Dit kan opgelost worden door naar de instellingen van Ubuntu te gaan en alle locale-instellingen te zetten in het UTF-8 formaat.
+
+ROS2: GPG-key niet gevonden
+PC herstarten en ROS2 installatie vanaf voor af aan beginnen. Het kan zijn dat er ergens tijdens het ophalen van de keys iets niet goed is gegaan.
+
+ROS2: wordt niet gevonden
+ROS2 versie is niet gesourced, gebruik:
+$source /opt/ros/humble/setup.bash
+
+ROS2: tijdens ros2 launch fontysbot wordt fontysbot package niet gevonden
+Fontysbot install map is niet gesourced, gebruik onderstaande commando in dev_ws map:
+$source install/setup.bash
+
+MicroROS: publisher published iets maar dit is ‘garbage’:
+Verander buffergrootte in de seriele communicatie library naar een grotere waarde, waarschijnlijk is de buffer te klein.
+
+Keil: Driverlibrary is goed ingesteld maar bouwt niet:
+Upgrade Keil versie naar 5.38.
+
+Keil: License error:
+Doordat het project groter is dan bij de standaard licentie gebouwd kan worden is hiervoor een ander licentie nodig. Contacteer Ruud den Bekker hiervoor.
+
+Keil: Tijdens flashen sluit Keil zonder error af: 
+Er moet iets aangepast worden in de registry van Windows, volg onderstaande link:
+https://developer.arm.com/documentation/ka005381/latest/ 
+
 
