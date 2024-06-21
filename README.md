@@ -1,5 +1,7 @@
 **ROS installatie**
 
+https://www.youtube.com/watch?v=S_00dVr4ERU
+
 __1: ROS2 setup__
 Om ROS2 te installeren zal er eerst een operating system op de pc geïnstalleerd moeten zijn op de PC en de operating system dient geschikt te zijn voor de gekozen distributie van ROS2. 
 In dit project is er gekozen voor ROS2 Humble en deze versie van ROS2 is gemaakt voor Ubuntu 22.04(Jammy). Deze kan gedownload worden via de onderstaande link:
